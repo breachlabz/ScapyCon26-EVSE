@@ -3,6 +3,13 @@
 Pre-built factory firmware image and one-shot flashing script for the
 **ScapyCon 2026** conference badge (ESP32-C5), running in **Pocket EVSE**
 mode — an OCPP-speaking charge point simulator built into the badge.
+ScapyCon 2026 runs 15.–16.09.2026 in Regensburg, Germany.
+
+This is an extended build of the badge firmware with a dedicated
+ChargePoint screen: it connects to Wi-Fi, speaks OCPP to a CSMS, and
+shows live status on-device (state, e.g. `AVAILABLE`, energy in kWh,
+session duration, and OCPP connection status). It also exposes BLE so
+commands can be sent without a serial cable.
 
 Firmware source lives at
 [dissecto-GmbH/scapycon-2026-badge-firmware](https://github.com/dissecto-GmbH/scapycon-2026-badge-firmware).
@@ -40,16 +47,21 @@ need to set up ESP-IDF to get a badge running.
 ## First-time setup (per badge)
 
 The badge boots into EVSE mode via **SW_D**, but shows **"SETUP MODE"**
-until it has both Wi-Fi and an OCPP identity. Open a serial terminal at
-115200 baud while the badge is in Name mode and send:
+until it has both Wi-Fi and an OCPP identity. Configure it over UART
+(115200 baud) while the badge is in Name mode — the same three commands
+work over BLE if you'd rather not use a serial cable:
 
 ```
-wifi:SSID,PASSWORD
-ocpp:ws://<csms-host>/<unique-charge-point-id>
+YourName
+wifi:ssid,password
+ocpp:ws://cms-server/cpId
 ```
 
-Each badge needs its own OCPP charge point ID (the last path segment of
-the URL) so the CSMS can tell badges apart.
+- **Name** — sets the display name shown on the badge.
+- **WIFI** (`wifi:ssid,password`) — joins the badge to a network.
+- **OCPP Endpoint** (`ocpp:ws://cms-server/cpId`) — points the badge at
+  your CSMS; the last path segment (`cpId`) is the charge point ID, and
+  each badge needs its own so the CSMS can tell them apart.
 
 ## License
 
