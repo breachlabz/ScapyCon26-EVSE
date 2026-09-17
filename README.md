@@ -5,7 +5,7 @@ Pre-built factory firmware image and one-shot flashing script for the
 mode — an OCPP-speaking charge point simulator built into the badge.
 ScapyCon 2026 runs 15.–16.09.2026 in Regensburg, Germany.
 
-![ScapyCon 2026 badge running Pocket EVSE, showing the ChargePoint screen (charge point "pocket1", AVAILABLE, 0.00 Wh, OCPP connected)](ScapyCon26-EVSE.jpeg)
+<img src="ScapyCon26-EVSE.jpeg" alt="ScapyCon 2026 badge running Pocket EVSE, showing the ChargePoint screen (charge point &quot;pocket1&quot;, AVAILABLE, 0.00 Wh, OCPP connected)" width="300">
 
 This is an extended build of the badge firmware with a dedicated
 ChargePoint screen: it connects to Wi-Fi, speaks OCPP to a CSMS, and
