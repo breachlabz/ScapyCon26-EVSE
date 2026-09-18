@@ -24,6 +24,9 @@ need to set up ESP-IDF to get a badge running.
 > credentials (`YOUR_WIFI_SSID` / `YOUR_WIFI_PASSWORD`), not any real
 > network's password. You set your own Wi-Fi after flashing (see below).
 
+> **Heads up:** most of the code here was written by Claude (Anthropic's
+> AI), with a human steering, reviewing, and testing every change.
+
 ## Requirements
 
 - A ScapyCon 2026 badge (ESP32-C5)
